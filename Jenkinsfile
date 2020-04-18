@@ -16,12 +16,15 @@ pipeline {
                 }
             }
         }
-        stage('Launch other job'){
-            steps{
+        stage('Launch other job') {
+            steps {
+                timeout(time: 5, unit: 'DAYS'){
+                    input message: 'Approve JOB?',submitter: 'dariowrn'
+                }
                 build job: 'Maven-build'
             }
-            post{
-                success{
+            post {
+                success {
                     echo 'Success!!!'
                 }
             }
