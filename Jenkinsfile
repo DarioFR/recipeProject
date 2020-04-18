@@ -1,6 +1,9 @@
 #!/usr/bin/env groovy
 pipeline {
     agent any //specifica lo specifico nodo jenkins su cui si vuole runnare la pipeline
+    tools {
+        maven 'MAVEN'
+    }
     stages {
         stage('Build') {
             steps {
