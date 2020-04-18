@@ -18,14 +18,17 @@ pipeline {
         }
         stage('Launch other job') {
             steps {
-                timeout(time: 5, unit: 'DAYS'){
-                    input message: 'Approve JOB?',submitter: 'dariowrn'
+                timeout(time: 5, unit: 'DAYS') {
+                    input message: 'Approve JOB?', submitter: 'dariowrn'
                 }
                 build job: 'Maven-build'
             }
             post {
                 success {
                     echo 'Success!!!'
+                }
+                failure {
+                    echo 'Failed!!!'
                 }
             }
         }
