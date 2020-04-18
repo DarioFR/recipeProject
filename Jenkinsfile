@@ -16,6 +16,16 @@ pipeline {
                 }
             }
         }
+        stage('Launch other job'){
+            steps{
+                build job: 'Maven-build'
+            }
+            post{
+                success{
+                    echo 'Success!!!'
+                }
+            }
+        }
     }
 
 }
