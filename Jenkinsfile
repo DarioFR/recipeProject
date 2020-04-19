@@ -22,6 +22,7 @@ pipeline {
 //                    input message: 'Approve JOB?', submitter: 'dariowrn'
 //                }
                sh '/usr/local/bin/docker build -t recipesservice-jenkins .'
+//                build job: 'Maven-build'
             }
             post {
                 success {
