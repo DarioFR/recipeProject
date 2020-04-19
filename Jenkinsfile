@@ -21,7 +21,7 @@ pipeline {
 //                timeout(time: 5, unit: 'DAYS') {
 //                    input message: 'Approve JOB?', submitter: 'dariowrn'
 //                }
-               sh 'docker build -t recipesservice-jenkins .'
+               sh '/usr/local/bin/docker build -t recipesservice-jenkins .'
             }
             post {
                 success {
