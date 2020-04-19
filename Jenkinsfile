@@ -16,12 +16,12 @@ pipeline {
                 }
             }
         }
-        stage('Launch other job') {
+        stage('Launch docker build') {
             steps {
-                timeout(time: 5, unit: 'DAYS') {
-                    input message: 'Approve JOB?', submitter: 'dariowrn'
-                }
-                build job: 'Maven-build'
+//                timeout(time: 5, unit: 'DAYS') {
+//                    input message: 'Approve JOB?', submitter: 'dariowrn'
+//                }
+               sh 'docker build -t recipesservice-jenkins .'
             }
             post {
                 success {
